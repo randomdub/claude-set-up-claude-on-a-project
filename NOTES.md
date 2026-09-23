@@ -16,6 +16,6 @@ Without the deny rules, Claude could read `.env` while debugging config and pull
 
 ## Verification
 
-- `/memory`: <!-- TODO: confirm CLAUDE.md shows as loaded -->
-- `/permissions`: <!-- TODO: confirm the allow / ask / deny rules are listed -->
+- `/memory`: in a new session, `CLAUDE.md` shows as loaded.
+- `/permissions`: the allow / ask / deny rules from `.claude/settings.json` are listed.
 - `npm test` (4/4 passing) and `npm run lint` (clean) both run on Node 22.
