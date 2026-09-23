@@ -16,9 +16,9 @@ CI (`.github/workflows/ci.yml`) runs lint, then tests, on Node 22. Both must pas
 ## Conventions
 
 - Use CommonJS (`require` / `module.exports`), not ES modules. ESLint is set to `sourceType: "script"`.
-- Routes never touch data directly. They call functions exported from `db/store.js`. To add data behavior, add a function there.
-- Error responses are JSON shaped `{ error: "<message>" }` with the correct status (400 for invalid input, 404 for not found). Successful creates return 201.
-- Write tests with `node:test` + `node:assert` + `supertest` against the exported `app`. Don't start a real server or add Jest/Mocha.
+- Use functions exported from `db/store.js` for data access, not direct reads or writes of the `users` array in routes. To add data behavior, add a function there.
+- Use JSON `{ error: "<message>" }` with a specific status (400 for invalid input, 404 for not found), not plain-text or generic 500 responses. Successful creates return 201.
+- Use `node:test` + `node:assert` + `supertest` against the exported `app`, not Jest/Mocha or a real running server.
 - Put tests in `tests/` as `*.test.js`.
 
 ## Architecture
